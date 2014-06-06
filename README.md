@@ -66,7 +66,7 @@ A successful API call responds with the following values:
 MIT
 
 ## Bug Reports
-Report [here](https://github.com/kickbox/kickbox-ruby/issues).
+Report [here](https://github.com/kickboxio/kickbox-ruby/issues).
 
 ## Need Help?
 help@kickbox.io
