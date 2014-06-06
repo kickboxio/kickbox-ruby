@@ -33,7 +33,8 @@ Works with [ 1.8.6 / 1.8.7 / 1.9.1 / 1.9.2 / 1.9.3 / 2.0.0 / 2.1.0 / 2.1.1 ]
 require "kickbox"
 
 client   = Kickbox::Client.new('Your_API_Key_Here')
-response = client.verify("test@example.com")
+kickbox  = client.kickbox()
+response = kickbox.verify("test@example.com")
 ```
 
 ### Response information
