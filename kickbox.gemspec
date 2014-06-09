@@ -2,13 +2,13 @@
 
 Gem::Specification.new do |gem|
   gem.name        = "kickbox"
-  gem.version     = "1.0.2"
+  gem.version     = "1.0.3"
   gem.description = "Official kickbox API library client for ruby"
   gem.summary     = "Official kickbox API library client for ruby"
 
   gem.author   = "Chaitanya Surapaneni"
   gem.email    = "chaitanya.surapaneni@kickbox.io"
-  gem.homepage = "https://kickbox.io"
+  gem.homepage = "http://kickbox.io"
   gem.license  = "MIT"
 
   gem.require_paths = ['lib']
