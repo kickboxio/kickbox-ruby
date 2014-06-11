@@ -2,7 +2,7 @@ module Kickbox
 
   module Api
 
-    # 
+    #
     class Kickbox
 
       def initialize(client)
@@ -16,6 +16,8 @@ module Kickbox
       # email - Email address to verify
       def verify(email, options = {})
         body = options.fetch(:query, {})
+
+        email = CGI::escape(email)
 
         @client.get("/verify?email=#{email}", body, options)
       end
