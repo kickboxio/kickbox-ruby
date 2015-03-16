@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name        = "kickbox"
-  gem.version     = "1.0.5"
+  gem.version     = "2.0.0"
   gem.description = "Official kickbox API library client for ruby"
   gem.summary     = "Official kickbox API library client for ruby"
 

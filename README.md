@@ -36,6 +36,14 @@ client   = Kickbox::Client.new('Your_API_Key_Here')
 kickbox  = client.kickbox()
 response = kickbox.verify("test@example.com")
 ```
+#### Options
+
+**timeout** `integer` (optional) - Maximum time, in milliseconds, for the API to complete a verification request. Default: 6000.
+
+```ruby
+# Example with options
+response = kickbox.verify("test@example.com", { "timeout" => 60000 })
+```
 
 ### Response information
 
