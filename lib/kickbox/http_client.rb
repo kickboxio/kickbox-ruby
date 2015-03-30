@@ -84,9 +84,10 @@ module Kickbox
 
         response = create_request(method, path, options)
 
-        body = get_body(response)
+        env = response.env
+        body = get_body(env)
 
-        Kickbox::HttpClient::Response.new(body, response.status, response.headers)
+        Kickbox::HttpClient::Response.new(body, env.status, env.response_headers)
       end
 
       # Creating a request with the given arguments
@@ -107,8 +108,8 @@ module Kickbox
       end
 
       # Get response body in correct format
-      def get_body(response)
-        Kickbox::HttpClient::ResponseHandler.get_body(response)
+      def get_body(env)
+        Kickbox::HttpClient::ResponseHandler.get_body(env)
       end
 
       # Set request body in correct format
