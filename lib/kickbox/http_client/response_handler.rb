@@ -5,9 +5,9 @@ module Kickbox
     # ResponseHandler takes care of decoding the response body into suitable type
     class ResponseHandler
 
-      def self.get_body(response)
-        type = response.headers["content-type"]
-        body = response.body
+      def self.get_body(env)
+        type = env.response_headers["content-type"]
+        body = env.body
 
         # Response body is in JSON
         if type.include?("json")
