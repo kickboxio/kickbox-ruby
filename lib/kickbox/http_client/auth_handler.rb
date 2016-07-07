@@ -7,8 +7,6 @@ module Kickbox
     # AuthHandler takes care of devising the auth type and using it
     class AuthHandler < Faraday::Middleware
 
-      HTTP_HEADER = 1
-
       def initialize(app, auth = {}, options = {})
         @auth = auth
         super(app)
@@ -19,16 +17,9 @@ module Kickbox
           auth = get_auth_type
           flag = false
 
-          if auth == HTTP_HEADER
-            env = http_header(env)
-            flag = true
-          end
-
           if !flag
             raise StandardError.new "Unable to calculate authorization method. Please check"
           end
-        else
-          raise StandardError.new "Server requires authentication to proceed further. Please check"
         end
 
         @app.call(env)
@@ -37,18 +28,7 @@ module Kickbox
       # Calculating the Authentication Type
       def get_auth_type()
 
-        if @auth.has_key?(:http_header)
-          return HTTP_HEADER
-        end
-
         return -1
-      end
-
-      # Authorization with HTTP header
-      def http_header(env)
-        env[:request_headers]["Authorization"] = "token #{@auth[:http_header]}"
-
-        return env
       end
 
       def query_params(url)
