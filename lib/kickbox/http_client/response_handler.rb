@@ -6,7 +6,7 @@ module Kickbox
     class ResponseHandler
 
       def self.get_body(env)
-        type = env.response_headers["content-type"]
+        type = env.response_headers["content-type"] || ''
         body = env.body
 
         # Response body is in JSON

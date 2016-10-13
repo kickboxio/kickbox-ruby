@@ -12,7 +12,7 @@ module Kickbox
       def call(env)
         @app.call(env).on_complete do |env|
           code = env.status
-          type = env.response_headers["content-type"]
+          type = env.response_headers["content-type"] || ''
 
           case code
           when 500...599
