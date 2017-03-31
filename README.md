@@ -36,6 +36,19 @@ client   = Kickbox::Client.new('Your_API_Key_Here')
 kickbox  = client.kickbox()
 response = kickbox.verify("test@example.com")
 ```
+`verify` returns a Kickbox::HttpClient::Response which has a `body` attribute which contains the deserialized JSON.
+
+You can use it like this:
+
+```ruby
+response.body['result'] #=> "deliverable"
+response.body['reason'] #=>  "accepted_email"
+
+```
+
+Full response information is provided below
+
+
 #### Options
 
 **timeout** `integer` (optional) - Maximum time, in milliseconds, for the API to complete a verification request. Default: 6000.
