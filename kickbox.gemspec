@@ -16,5 +16,5 @@ Gem::Specification.new do |gem|
   gem.files = Dir["lib/**/*"]
 
   gem.add_dependency "faraday", "~> 0.9"
-  gem.add_dependency "json", "~> 1.8"
+  gem.add_dependency "json", ">= 1.8"
 end
