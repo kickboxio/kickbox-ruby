@@ -22,7 +22,7 @@ module Kickbox
         @options = {
           :base => "https://api.kickbox.io",
           :api_version => "v2",
-          :user_agent => "kickbox-ruby/2.0.0 (https://github.com/kickboxio/kickbox-ruby)"
+          :user_agent => "kickbox-ruby/2.0.3 (https://github.com/kickboxio/kickbox-ruby)"
         }
 
         @options.update(options)
