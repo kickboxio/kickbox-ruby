@@ -7,14 +7,12 @@ module Kickbox
 
       def self.get_body(env)
         type = env.response_headers["content-type"] || ''
-        body = env.body
 
         # Response body is in JSON
-        if type.include?("json")
-          body = JSON.parse body
-        end
+        type.include?("json") ?
+          return JSON.parse(body) :
+          return env.body
 
-        return body
       end
 
     end

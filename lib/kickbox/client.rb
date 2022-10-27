@@ -12,7 +12,7 @@ module Kickbox
     end
 
     # 
-    def kickbox()
+    def kickbox
       Kickbox::Api::Kickbox.new(@http_client)
     end
 
