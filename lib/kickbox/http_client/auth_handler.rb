@@ -15,40 +15,29 @@ module Kickbox
       end
 
       def call(env)
-        if !@auth.empty?
-          auth = get_auth_type
-          flag = false
+        raise StandardError.new("Server requires authentication to proceed further. Please check") if @auth.empty?
 
-          if auth == HTTP_HEADER
-            env = http_header(env)
-            flag = true
-          end
-
-          if !flag
-            raise StandardError.new "Unable to calculate authorization method. Please check"
-          end
-        else
-          raise StandardError.new "Server requires authentication to proceed further. Please check"
+        if get_auth_type == HTTP_HEADER
+          env = http_header(env)
         end
 
         @app.call(env)
       end
 
       # Calculating the Authentication Type
-      def get_auth_type()
-
+      def get_auth_type
         if @auth.has_key?(:http_header)
-          return HTTP_HEADER
+          HTTP_HEADER
+        else
+          raise StandardError.new("Unable to calculate authorization method. Please check")
         end
-
-        return -1
       end
 
       # Authorization with HTTP header
       def http_header(env)
         env[:request_headers]["Authorization"] = "token #{@auth[:http_header]}"
 
-        return env
+        env
       end
 
       def query_params(url)
@@ -60,11 +49,11 @@ module Kickbox
       end
 
       def merge_query(env, query)
-        query = query.update query_params(env[:url])
+        query = query.update(query_params(env[:url]))
 
         env[:url].query = Faraday::Utils.build_query(query)
 
-        return env
+        env
       end
     end
 

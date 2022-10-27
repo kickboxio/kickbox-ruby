@@ -2,7 +2,7 @@ module Kickbox
 
   module HttpClient
 
-    # ErrorHanlder takes care of selecting the error message from response body
+    # ErrorHandler takes care of selecting the error message from response body
     class ErrorHandler < Faraday::Middleware
 
       def initialize(app)

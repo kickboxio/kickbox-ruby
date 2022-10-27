@@ -15,7 +15,7 @@ module Kickbox
       #
       # email - Email address to verify
       def verify(email, options = {})
-        body    = options.fetch("query", {})
+        body = options.fetch("query", {})
         timeout = options.fetch("timeout", 6000)
 
         email = CGI::escape(email)
